@@ -1,45 +1,38 @@
-# Finder in Drivers
+# Slint Rust Template
 
-"Finder" é uma ferramenta escrita em Rust para indexar e buscar arquivos e pastas rapidamente em unidades de disco. Ele utiliza um HashMap para armazenar as localizações dos arquivos e diretórios, permitindo buscas otimizadas e eficientes.
+A template for a Rust application that's using [Slint](https://slint.rs/) for the user interface.
 
-![image](https://github.com/user-attachments/assets/317b5035-b965-4987-aa26-199306189d9b)
+## About
 
+This template helps you get started developing a Rust application with Slint as toolkit
+for the user interface. It demonstrates the integration between the `.slint` UI markup and
+Rust code, how to react to callbacks, get and set properties, and use basic widgets.
 
-## Funcionalidades
-- Indexa todas as pastas e arquivos de uma unidade.
-- Realiza buscas rápidas por nome de arquivo ou diretório.
-- Usa cache para otimizar buscas repetidas.
-- Suporte a buscas filtradas para arquivos ou pastas.
+## Usage
 
-## Tecnologias Utilizadas
-- **Rust**
-- **sysinfo**: Para obter informações sobre as partições do sistema.
-- **serde_json**: Para salvar e carregar resultados do cache.
-- **lazy_static**: Para gerenciamento de cache global.
-- **slint**: Para interface gráfica (opcional, caso implementado).
+1. Install Rust by following its [getting-started guide](https://www.rust-lang.org/learn/get-started).
+   Once this is done, you should have the `rustc` compiler and the `cargo` build system installed in your `PATH`.
+2. Download and extract the [ZIP archive of this repository](https://github.com/slint-ui/slint-rust-template/archive/refs/heads/main.zip).
+3. Rename the extracted directory and change into it:
+    ```
+    mv slint-rust-template-main my-project
+    cd my-project    
+    ```
+4. Build with `cargo`:
+    ```
+    cargo build
+    ```
+5. Run the application binary:
+    ```
+    cargo run
+    ```
 
-## Como Usar
-1. Clone o repositório:
-   ```sh
-   git clone https://github.com/will-csc/Localizador-de-Arquivos
-   cd file-finder
-   ```
-2. Instale as dependências:
-   ```sh
-   cargo build
-   ```
-3. Execute o programa:
-   ```sh
-   cargo run
-   ```
+We recommend using an IDE for development, along with our [LSP-based IDE integration for `.slint` files](https://github.com/slint-ui/slint/blob/master/tools/lsp/README.md). You can also load this project directly in [Visual Studio Code](https://code.visualstudio.com) and install our [Slint extension](https://marketplace.visualstudio.com/items?itemName=Slint.slint).
 
-## Exemplo de Uso
-Para indexar um disco e buscar um arquivo:
-```rust
-index_drive("C:/");
-let resultado = find_in("documento.txt", false, true);
-println!("Resultados: {}", resultado);
-```
+## Next Steps
 
-## Contribuição
-Vale resslatar que esté um projeto iniciante, então há melhorias a serem feitas. Então se quiser contribuir, sinta-se à vontade para abrir um pull request ou relatar problemas na aba de issues.
+We hope that this template helps you get started, and that you enjoy exploring making user interfaces with Slint. To learn more
+about the Slint APIs and the `.slint` markup language, check out our [online documentation](https://slint.dev/docs).
+
+Don't forget to edit this readme to replace it by yours, and edit the `name =` field in `Cargo.toml` to match the name of your
+project.

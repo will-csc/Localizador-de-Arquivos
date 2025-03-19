@@ -1,0 +1,210 @@
+import { ToggleSwitch } from "Toggle.slint";
+import { Button } from "Button.slint";
+
+export component MainWindow {
+    width: 580px;
+    height: 577px;
+
+    in property <string> file_name: "";
+    in property <string> drivers: "Drivers...";
+    in property <string> locations: "Sem localizações";
+    in-out property <bool> toggle_1: false;
+    in-out property <bool> toggle_2: false;
+
+    callback find_in(string);
+    // --------------- Componente principal ---------------
+    Rectangle {
+        width: 530px;
+        height: 539px;
+        background: #600;
+        border-radius: 20px;
+        x: 26px;
+        y: 22px;
+    }
+    Image {
+        source: @image-url("images/Rust.png");
+        width: 103px;
+        height: 103px;
+        x: 477px;
+        y: -13px;
+    }
+    Rectangle {
+        width: 212px;
+        height: 38px;
+        background: #EAD196;
+        border-radius: 20px;
+        x: 58px;
+        y: 8px;
+    }
+    Text {
+        text: "Finder";
+        font-size: 25px;
+        color: #000;
+        font-weight: 700;
+        padding: 8px;
+        x: 86px;
+        y: 13px;
+    }
+
+    // --------------- Primeira Parte ---------------
+    Text {
+        text: "Digite o nome do arquivo ou pasta";
+        font-size: 15px;
+        color: #FFFFFF;
+        font-weight: 700;
+        stroke: #000000;
+        stroke-width: 1px;
+        padding: 8px;
+        x: 66px;
+        y: 57px;
+    }
+    Rectangle {
+        width: 318px;
+        height: 26px;
+        background: #FBE4D6;
+        border-radius: 15px;
+        x: 66px;
+        y: 85px;
+    }
+    file_name := TextInput {
+        width: 80%;
+        height: 30px;
+        font-size: 15px;
+        font-weight: 700;
+        x: 81px;
+        y: 89px;
+    }
+
+    // --------------- Segunda parte ---------------
+    Text {
+        text: "Opções";
+        font-size: 15px;
+        color: #FFFFFF;
+        font-weight: 700;
+        stroke: #000000;
+        stroke-width: 1px;
+        padding: 8px;
+        x: 66px;
+        y: 122px;
+    }
+    Text {
+        text: "Drives do seu computador";
+        font-size: 15px;
+        color: #FFFFFF;
+        font-weight: 700;
+        stroke: #000000;
+        stroke-width: 1px;
+        padding: 8px;
+        x: 227px;
+        y: 122px;
+    }
+
+    Text {
+        text: "Incluir Pastas";
+        font-size: 12px;
+        color: #FFFFFF;
+        stroke-width: 1px;
+        padding: 8px;
+        font-weight: 700;
+        x: 69px;
+        y: 151px;
+    }
+    ToggleSwitch{ 
+        x: 69px;
+        y: 169px;
+        toggled => {
+            if(root.toggle_1){
+                root.toggle_1 = false;
+            }else{
+                root.toggle_1 = true;
+            }
+        }
+    }
+    ToggleSwitch { 
+        x: 69px;
+        y: 225px;
+        toggled => {
+            if(root.toggle_2){
+                root.toggle_2 = false;
+            }else{
+                root.toggle_2 = true;
+            }
+        }
+    }
+    Text {
+        text: "Incluir Arquivos";
+        font-size: 12px;
+        color: #FFFFFF;
+        stroke-width: 1px;
+        padding: 8px;
+        font-weight: 700;
+        x: 69px;
+        y: 200px;
+    }
+
+    Rectangle {
+        width: 315px;
+        height: 140px;
+        background: #EAD196;
+        border-radius: 20px;
+        x: 220px;
+        y: 147px;
+    }
+
+    Text {
+        text: root.drivers;
+        font-size: 20px;
+        color: #000000;
+        stroke-width: 1px;
+        padding: 8px;
+        font-weight: 700;
+        width: 288px;
+        height: 119px;
+        x: 233px;
+        y: 159px;
+    }
+
+    Button{
+        text: "Procurar";
+        background: #3D0301;
+        width: 136px;
+        height: 28px;
+        x: 64px;
+        y: 259px;
+        border-color: #FFFFFF;
+        border-width: 2px;
+        clicked => {find_in(root.file_name)}
+    }
+
+    // --------------- Terceira parte ---------------
+    Text {
+        text: "Resultado";
+        font-size: 15px;
+        color: #FFFFFF;
+        font-weight: 700;
+        stroke: #000000;
+        stroke-width: 1px;
+        padding: 8px;
+        x: 66px;
+        y: 304px;
+    }
+    Rectangle {
+        width: 417px;
+        height: 208px;
+        background: #FBE4D6;
+        border-radius: 20px;
+        x: 64px;
+        y: 331px;
+    }
+    Text {
+        text: root.locations;
+        font-size: 12px;
+        color: #000000;
+        font-weight: 700;
+        padding: 8px;
+        width: 448px;
+        height: 188px;
+        x: 73px;
+        y: 339px;
+    }
+}
